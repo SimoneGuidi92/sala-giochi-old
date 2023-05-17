@@ -1,0 +1,40 @@
+// .board {
+//   display: flex;
+//   flex-wrap: wrap;
+//   width: 300px;
+//   height: 300px;
+//   margin: 20px auto;
+//   border: 2px solid black;
+// }
+// .cell {
+//   // flex: 1 0 33.33%;
+//   height: 100px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-size: 4em;
+//   border: 1px solid lightgray;
+//   cursor: pointer;
+// }
+// .x {
+//   color: red;
+// }
+// .o {
+//   color: blue;
+// }
+.cell {
+  font-size: 4em;
+  cursor: pointer;
+}
+.x, .o {
+  font-size: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.x {
+  color: red;
+}
+.o {
+  color: blue;
+}
