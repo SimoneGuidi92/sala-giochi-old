@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainMenuSnakeNewComponent implements OnInit {
 
+  difficolta: number = 150;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  difficoltaSelezionata(event: any) {
+    this.difficolta = event;
   }
 
 }

@@ -1,0 +1,16 @@
+.cell {
+  font-size: 4em;
+  cursor: pointer;
+}
+.x, .o {
+  font-size: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.x {
+  color: red;
+}
+.o {
+  color: blue;
+}

@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'testa-croce', loadChildren: () => import('./modules/testa-croce-module/testa-croce-module.module').then(m => m.TestaCroceModuleModule) },
   { path: 'snake', loadChildren: () => import('./modules/snake/snake-routing.module').then(m => m.SnakeRoutingModule) },
   { path: 'snake-new', loadChildren: () => import('./modules/snake-new/snake-new-routing.module').then(m => m.SnakeNewRoutingModule) },
+  { path: 'tic-tac-toe', loadChildren: () => import('./modules/tic-tac-toe/tic-tac-toe-routing.module').then(m => m.TicTacToeRoutingModule) },
 ];
 
 @NgModule({

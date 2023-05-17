@@ -4,16 +4,21 @@
       <div class="card-wrapper">
         <div class="card rounded-5">
           <div class="card-body d-flex flex-column justify-content-center align-items-center">
-            <h3 class="card-title h5">Menù</h3>
+            <h3 class="card-title h5">Menù Snake</h3>
             <div class="d-flex flex-column justify-content-center align-items-center gap-2">
               <button class="btn btn-primary btn-sm col-lg-12 col-md-12 col-sm-12" routerLink="/snake-new-game">Play</button>
-              <button class="btn btn-success btn-sm col-lg-12 col-md-12 col-sm-12">Opzioni</button>
-              <button class="btn btn-success btn-sm col-lg-12 col-md-12 col-sm-12" routerLink="/">Esci</button>
+              <button class="btn btn-success btn-sm col-lg-12 col-md-12 col-sm-12" type="button" data-bs-toggle="modal" data-bs-target="#modalCenter">Difficoltà</button>
+              <!-- Option modal -->
+              <app-options-modal class="modal fade" tabindex="-1" role="dialog" id="modalCenter" aria-labelledby="modalCenterTitle" data-bs-backdrop="static" data-bs-keyboard="false"></app-options-modal>
+              <!-- <app-options-modal (difficoltaEmit)="difficoltaSelezionata($event)" class="modal fade" tabindex="-1" role="dialog" id="modalCenter" aria-labelledby="modalCenterTitle" data-bs-backdrop="static" data-bs-keyboard="false"></app-options-modal> -->
+
+              <button class="btn btn-danger btn-sm col-lg-12 col-md-12 col-sm-12" routerLink="/">Esci</button>
             </div>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+

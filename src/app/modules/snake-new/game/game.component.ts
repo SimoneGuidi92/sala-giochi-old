@@ -9,7 +9,7 @@ import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } fro
 // // import 'rxjs/add/operator/map';
 // import { DIRECTIONS, FPS, INITIAL_DIRECTION, POINTS_PER_APPLE, Point2D, SNAKE_LENGTH, SPEED, createCanvasElement } from 'src/assets/const-canvas/base-prop-func';
 import { Observable, BehaviorSubject, animationFrameScheduler } from '../../../../assets/imports/rxjs';
-import { DIRECTIONS, SPEED, SNAKE_LENGTH, FPS, APPLE_COUNT, POINTS_PER_APPLE } from '../../../../assets/imports/constants';
+import { DIRECTIONS, SNAKE_LENGTH, FPS, APPLE_COUNT, POINTS_PER_APPLE } from '../../../../assets/imports/constants';
 import { Key, Point2D, Scene } from '../../../../assets/imports/types';
 
 import {
@@ -33,6 +33,7 @@ import {
   generateApples
 } from '../../../../assets/imports/utils';
 import { distinctUntilChanged, filter, fromEvent, map, interval, scan, startWith, share, withLatestFrom, skip, tap, combineLatest, animationFrame, takeWhile } from 'rxjs';
+import { ShareValueService } from 'src/app/services/share-value.service';
 
 @Component({
   selector: 'app-game',
@@ -44,12 +45,30 @@ export class GameComponent implements OnInit, OnDestroy {
 
   canvas: any = null;
   score: any = 0;
+  speed = this.shareService.difficolta;
+  ticks$ = interval(this.speed)
+  speedString = "Facile";
+  // prova = this.shareService.difficolta;
 
-  constructor() {}
+  constructor(private shareService: ShareValueService, private elementRef: ElementRef) {
+    if(this.speed === 150) {
+      this.speedString = "Facile";
+    }
+    else if(this.speed === 100) {
+      this.speedString = "Media";
+    }
+    else if(this.speed === 50) {
+      this.speedString = "Difficile";
+    }
+    else if(this.speed === 25) {
+      this.speedString = "Impossibile!";
+    }
+  }
 
   ngOnDestroy(): void {
     // removeCanvasElement();
     this.canvas.remove();
+    // this.elementRef.nativeElement.remove();
   }
 
   ngOnInit(): void {
@@ -79,7 +98,8 @@ export class GameComponent implements OnInit, OnDestroy {
     /**
      * Determina la velocita del serpente
      */
-    let ticks$ = interval(SPEED);
+    // let ticks$ = interval(this.speed / 60, animationFrameScheduler).pipe();
+    // let ticks$ = interval(this.speed)
 
     /**
      * Traccia interazioni generali dell'utente con la pagina
@@ -122,7 +142,7 @@ export class GameComponent implements OnInit, OnDestroy {
     /**
      * Accumula un array di body segments. Ogni segmento è rappresentato come una cella sulla griglia
      */
-    let snake$: Observable<Array<Point2D>> = ticks$.pipe(
+    let snake$: Observable<Array<Point2D>> = this.ticks$.pipe(
       withLatestFrom(direction$, snakeLength$, (_, direction, snakeLength) => [direction, snakeLength]),
       scan(move, generateSnake()),
       share()

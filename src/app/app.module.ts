@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScissorsPaperRockModuleModule } from './modules/scissors-paper-rock-module/scissors-paper-rock-module.module';
 import { SnakeModule } from './modules/snake/snake.module';
 import { SnakeNewModule } from './modules/snake-new/snake-new.module';
+import { TicTacToeModule } from './modules/tic-tac-toe/tic-tac-toe.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SnakeNewModule } from './modules/snake-new/snake-new.module';
     BrowserAnimationsModule,
     ScissorsPaperRockModuleModule,
     SnakeModule,
-    SnakeNewModule
+    SnakeNewModule,
+    TicTacToeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
