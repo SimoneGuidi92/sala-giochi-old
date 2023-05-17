@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var Key = /*#__PURE__*/(() => {\n  (function (Key) {\n    Key[Key[\"LEFT\"] = 37] = \"LEFT\";\n    Key[Key[\"RIGHT\"] = 39] = \"RIGHT\";\n    Key[Key[\"UP\"] = 38] = \"UP\";\n    Key[Key[\"DOWN\"] = 40] = \"DOWN\";\n  })(Key || (Key = {}));\n\n  return Key;\n})();\n;","map":null,"metadata":{},"sourceType":"module"}
