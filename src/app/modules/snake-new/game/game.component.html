@@ -1,10 +1,15 @@
 <!-- <p>game works!</p> -->
 <div class="main-content d-flex flex-column justify-content-center align-items-center" #snakeDiv id="snake-content">
   <button class="btn btn-danger py-2" routerLink="/snake-new">Back</button>
+  <button class="btn btn-primary py-2 my-2" (click)="restart()">Restart</button>
   <!-- <button mat-raised-button color="primary">Back</button> -->
-  <h1 class="text-center">Score: {{score}}</h1>
   <!-- <h1 class="text-center">Speed: {{speedString}}</h1> -->
   <h1 class="text-center">Difficoltà: {{speedString}}</h1>
+  <div class="d-flex flex-row justify-content-center align-items-center gap-5">
+    <h1 class="text-center">Score: {{score}}</h1>
+    <h1 class="text-center">Record: {{record}}</h1>
+
+  </div>
 
 </div>
 <!-- <div>

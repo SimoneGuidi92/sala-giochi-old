@@ -45,12 +45,15 @@ export class GameComponent implements OnInit, OnDestroy {
 
   canvas: any = null;
   score: any = 0;
+  record: any = 0;
   speed = this.shareService.difficolta;
   ticks$ = interval(this.speed)
   speedString = "Facile";
   // prova = this.shareService.difficolta;
 
   constructor(private shareService: ShareValueService, private elementRef: ElementRef) {
+    console.log("difficolta: " + this.shareService.difficolta);
+
     if(this.speed === 150) {
       this.speedString = "Facile";
     }
@@ -71,7 +74,14 @@ export class GameComponent implements OnInit, OnDestroy {
     // this.elementRef.nativeElement.remove();
   }
 
+  restart() {
+    this.canvas.remove();
+    this.score = 0;
+    this.ngOnInit();
+  }
+
   ngOnInit(): void {
+
     // window.location.reload();
         // throw new Error('Method not implemented.');
         /**
@@ -165,6 +175,8 @@ export class GameComponent implements OnInit, OnDestroy {
       tap(() => length$.next(POINTS_PER_APPLE)),
     ).subscribe(() => {
       this.score = this.score + 1;
+      this.record = this.score > this.record ? this.score : this.record;
+
     });
 
     /**
