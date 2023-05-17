@@ -1,18 +1,18 @@
 <div>
   <h2>Tic Tac Toe</h2>
-  <div class="container d-flex flex-column" style="height: 300px;">
-    <div class="container col-3 h-100">
-      <div class="row w-100 h-100" style="background-color: magenta;">
-        <div class="row w-100" style="height: 33%;">
+  <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 300px;">
+    <div class="container col-4 h-100">
+      <div class="d-flex flex-row justify-content-center align-items-center w-100 h-100" style="background-color: white;">
+        <div class="row w-100 h-100" style="border: 1px solid black;" *ngIf="winner === ''">
           <div *ngFor="let cell of cells; let i = index"
-                class="col-4 py-3 text-center cell border h-100"
+                class="col-4 text-center cell border"
                 [class.x]="cell === 'X'"
                 [class.o]="cell === 'O'"
                 (click)="makeMove(i)">
             {{ cell }}
           </div>
         </div>
-        <div class="col-4 py-3 text-center cell border mx-5" style="height: fit-content !important;" *ngIf="winner !== ''">
+        <div class="col-12 py-3 text-center cell border mx-5" style="height: fit-content !important;" *ngIf="winner !== ''">
           <h1>COMPLIMENTI! Il giocatore {{winner}} ha vinto!</h1>
         </div>
 
